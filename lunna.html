@@ -1,0 +1,73 @@
+/projeto-aluraflix
+  - index.html
+  - styles.css
+  - script.js
+
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AluraFlix</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <div class="container">
+      <h1>AluraFlix</h1>
+      <button id="add-video-btn">Adicionar Vídeo</button>
+    </div>
+  </header>
+
+  <!-- Destaque -->
+  <main>
+    <section class="hero">
+      <h2>Vídeo Destaque</h2>
+      <iframe 
+        width="100%" 
+        height="400" 
+        src="https://www.youtube.com/embed/KhA5FCf2r7U" 
+        title="Vídeo Destaque" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <!-- Galeria -->
+    <section class="video-gallery">
+      <h2>Galeria de Vídeos</h2>
+      <div id="video-grid" class="video-grid">
+        <!-- Exemplo de vídeo -->
+        <div class="video-card">
+          <iframe 
+            width="100%" 
+            height="200" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="Vídeo Exemplo" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+          <p>Rick Astley - Never Gonna Give You Up</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Adicionar Novo Vídeo</h2>
+      <form id="add-video-form">
+        <label for="video-url">URL do Vídeo</label>
+        <input type="url" id="video-url" placeholder="https://www.youtube.com/watch?v=..." required>
+        
+        <label for="video-title">Título do Vídeo</label>
+        <input type="text" id="video-title" placeholder="Digite o título do vídeo" required>
+        
+        <div class="form-actions">
+          <button type="submit">Adicionar</button>
+          <button type="button" id="close-modal
+

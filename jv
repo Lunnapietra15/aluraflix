@@ -1,0 +1,52 @@
+// Modal e Formulário
+const modal = document.getElementById("modal");
+const addVideoBtn = document.getElementById("add-video-btn");
+const closeModalBtn = document.getElementById("close-modal");
+const addVideoForm = document.getElementById("add-video-form");
+const videoGrid = document.getElementById("video-grid");
+
+// Abrir Modal
+addVideoBtn.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+});
+
+// Fechar Modal
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
+// Adicionar Vídeo
+addVideoForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const videoUrl = document.getElementById("video-url").value;
+  const videoTitle = document.getElementById("video-title").value;
+
+  // Pegar o ID do vídeo do YouTube
+  const urlParams = new URLSearchParams(new URL(videoUrl).search);
+  const videoId = urlParams.get("v");
+
+  if (videoId) {
+    const videoCard = document.createElement("div");
+    videoCard.classList.add("video-card");
+    videoCard.innerHTML = `
+      <iframe 
+        width="100%" 
+        height="200" 
+        src="https://www.youtube.com/embed/${videoId}" 
+        title="${videoTitle}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+      <p>${videoTitle}</p>
+    `;
+    videoGrid.appendChild(videoCard);
+
+    // Fechar o modal e resetar o formulário
+    modal.classList.add("hidden");
+    addVideoForm.reset();
+  } else {
+    alert("URL inválida! Certifique-se de colar uma URL do YouTube.");
+  }
+});
+ 
